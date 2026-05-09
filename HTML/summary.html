@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Store - Order Summary</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Order Summary</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart</a>
+            </nav>
+        </header>
+        <main>
+            <section class="summary-list">
+            <h2>Items in your cart: </h2>
+            <ul>
+                <li>
+                    <strong>Cyber Hunter</strong> - $18.99 × 1 = $18.99
+                </li>
+                <li>
+                    <strong>Starfield</strong> - $20.99 × 2 = $41.98
+                </li>
+            </ul>
+
+            <p><strong>Total:</strong> $60.97</p>
+            <button onclick="confirmOrder()">Confirm Order</button>
+            <button onclick="cancelOrder()">Cancel Order</button>
+
+            </section>
+        </main>
+        <script>
+            function confirmOrder(){
+                alert("Your order has been successfully confirmed. Shop again, Thank you!")
+            }
+            function cancelOrder(){
+                alert("Your order has been successfully cancelled! Returning to cart.")
+                window.location.href = "cart.html";
+            }
+        </script>
+    </body>
+</html>

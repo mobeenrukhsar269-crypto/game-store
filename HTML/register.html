@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Game Store - Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Register</h2>
+    <form onsubmit="return validateRegister()">
+        <label>First Name:</label>
+        <input type="text" id="first-name" required>
+        
+        <label>Last Name:</label>
+        <input type="text" id="last-name" required>
+        
+        <label>Username:</label>
+        <input type="text" id="username" required>
+
+        <label>Email:</label>
+        <input type="email" id="registerEmail" required>
+
+        <label>Password:</label>
+        <input type="password" id="registerPassword" required>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="confirmPassword" required>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>Already have an account? <a href="login.html" class="login-link">Login here</a></p>
+
+    <script>
+        function validateRegister() {
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+            const confirm = document.getElementById("confirmPassword").value;
+
+            const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+            const strongPassword = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email.");
+                return false;
+            }
+
+            if (!strongPassword.test(password)) {
+                alert("Password must be at least 6 characters and include a number and an uppercase letter.");
+                return false;
+            }
+
+            if (password !== confirm) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            alert("Registration successful (placeholder)!");
+            return true;
+        }
+    </script>
+</body>
+</html>

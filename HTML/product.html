@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Store - Product Details</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header> 
+            <h1>Game Store</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart</a>
+                <a href="login.html">Login</a>
+            </nav>
+        </header>
+        <main>
+            <section class="product-details">
+                <img src="images/cyber-hunter.jpg" alt="Cyber Hunter Cover" class="game-image" style="max-width: 300px;">
+                <h2>Cyber Hunter</h2>
+                <p><strong>Description:</strong> Cyber Hunter is an open-world battle royale game featuring survival, shooting, and exploration elements.</p>
+                <p><strong>Genre:</strong> Action</p>
+                <p><strong>Price:</strong> $18.99</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </section>
+            <section class="product-details">
+                <img src="images/Blaster Blade X Rush Duel.jpg" alt="Blade Rush Cover" class="game-image" style="max-width: 300px;">
+                <h2>Blade Rush</h2>
+                <p><strong>Description:</strong> Blade Rush is an action packed game with amazing sword battles and stunts. </p>
+                <p><strong>Genre:</strong> Action</p>
+                <p><strong>Price:</strong> $24.99</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </section>
+            <section class="product-details">
+                <img src="images/‘Civilization 6’ PC Is Free On The Epic Games Store, Here’s How To Download It.jpg" alt="Civilization VI Cover" class="game-image" style="max-width: 300px;">
+                <h2>Civilization VI</h2>
+                <p><strong>Description:</strong> Like other entries in the award-winning Civilization series before it, Sid Meier's Civilization VI challenges you to build an empire to stand the test of time. Playing as one of 20 leaders in the base game with different perks and abilities, you guide your chosen civilization from the Stone Age to the Information Age. </p>
+                <p><strong>Genre:</strong> Strategy</p>
+                <p><strong>Price:</strong> $13.99</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </section>
+            <section class="product-details">
+                <img src="images/Starfield_ Available Now on Console, PC, and Game Pass _ Xbox.jpg" alt="Starfield Cover" class="game-image" style="max-width: 300px;">
+                <h2>Starfield</h2>
+                <p><strong>Description:</strong> Starfield is an adventurous role-playing video game. The player can switch between a first-person and third-person perspective at any time. The game features an open world in the form of an area within the Milky Way galaxy, containing both fictional and non-fictional planetary systems.</p>
+                <p><strong>Genre:</strong> Adventure</p>
+                <p><strong>Price:</strong> $20.99</p>
+                <button onclick="addToCart()">Add to Cart</button>
+            </section>
+        </main>
+        <script>
+            function addToCart() {
+                alert("Game added to cart!");
+            }
+        </script>
+    </body>
+</html>

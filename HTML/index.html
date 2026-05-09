@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
+    <script>
+        function addToCart(gameId, title, price, image) {
+            fetch('../cart/add_to_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `game_id=${encodeURIComponent(gameId)}&title=${encodeURIComponent(title)}&price=${encodeURIComponent(price)}&quantity=1&image=${encodeURIComponent(image)}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                updateCartCounter();
+            })
+            .catch(error => {
+                console.error("Error adding to cart:", error);
+            });
+        }
+
+        function updateCartCounter() {
+            // Implement cart counter update if needed
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Game Store</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="../cart/cart.php">Cart</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+    <main>
+        <section class="filters">
+            <label for="genreFilter">Filter By Genre:</label>
+            <select id="genreFilter" onchange="filterGames()">
+                <option value="All">All</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Strategy">Strategy</option>
+            </select>
+        </section>
+        <section class="game-list" id="gameList">
+            <div class="game-card" data-genre="Action">
+                <img src="images/cyber-hunter.jpg" alt="Cyber Hunter Cover" class="game-image">
+                <h3>Cyber Hunter</h3>
+                <p>Cyber Hunter is an open-world battle royale game featuring an unique combination of gaming elements, including survival, shooting and exploring.</p>
+                <p><strong>Price:</strong> $18.99</p>
+                <button class="add-to-cart" onclick="addToCart(1,'Cyber Hunter', 18.99, 'images/cyber-hunter.jpg')">Add to Cart</button>
+            </div>
+            <div class="game-card" data-genre="Action">
+                <img src="images/Blaster Blade X Rush Duel.jpg" alt="Blade Rush Cover" class="game-image">
+                <h3>Blade Rush</h3>
+                <p>High Speed sword combat and stunts</p>
+                <p><strong>Price:</strong> $24.99</p>
+                <button class="add-to-cart" onclick="addToCart(2,'Blade Rush', 24.99, 'images/Blaster Blade X Rush Duel.jpg')">Add to Cart</button>
+            </div>
+            <div class="game-card" data-genre="Strategy">
+                <img src="images/civilization6.jpg" alt="Civilization VI Cover" class="game-image">
+                <h3>Civilization VI</h3>
+                <p>Civilization VI puts the responsibilities of a world leader in the palm of your hand. The strategy game tasks players with turning tiny, fledgling towns into massive, flourishing cities.</p>
+                <p><strong>Price:</strong> $13.99</p>
+                <button class="add-to-cart" onclick="addToCart(3,'Civilization VI', 13.99, 'images/civilization6.jpg')">Add to Cart</button>
+            </div>
+            <div class="game-card" data-genre="Adventure">
+                <img src="images/Starfield_ Available Now on Console, PC, and Game Pass _ Xbox.jpg" alt="Starfield Cover" class="game-image">
+                <h3>Starfield</h3>
+                <p>Starfield is an adventurous role-playing video game. The player can switch between a first-person and third-person perspective at any time. The game features an open world in the form of an area within the Milky Way galaxy, containing both fictional and non-fictional planetary systems.</p>
+                <p><strong>Price:</strong> $20.99</p>
+                <button class="add-to-cart" onclick="addToCart(4,'Starfield', 20.99, 'images/Starfield_ Available Now on Console, PC, and Game Pass _ Xbox.jpg')">Add to Cart</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        function filterGames() {
+            const selectedGenre = document.getElementById('genreFilter').value;
+            const games = document.querySelectorAll('.game-card');
+    
+            games.forEach(game => {
+                const genre = game.getAttribute('data-genre');
+                game.style.display = (selectedGenre === 'All' || genre === selectedGenre) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

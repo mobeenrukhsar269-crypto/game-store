@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Store - Login Page</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h2>Login</h2>
+        <form onsubmit="return validateLogin()">
+            <label>Email:</label>
+            <input type="email" id="loginEmail" required>
+            <label>Password:</label>
+            <input type="password" id="loginPassword" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="register.html" class="register-link">Register here</a></p>
+        <script>
+            function validateLogin(){
+                const email = document.getElementById("loginEmail").value;
+                const password = document.getElementById("loginPassword").value;
+                if(!email.includes('@')){
+                    alert("Please enter a valid email!");
+                    return false;
+                }
+                if(password.length<6){
+                    alert("Your password must be longer than 6 characters!");
+                    return false;
+                }
+                alert("Login successful(placeholder)!");
+                return true;
+
+            }
+        </script>
+    </body>
+</html>
