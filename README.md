@@ -109,7 +109,6 @@ http://localhost/GAME_STORE/HTML/index.html
 
 ## 📸 Screenshots
 
-> _Add screenshots of your app here. Example:_
 
 | Login | Home | Cart | Checkout |
 |------|------|-------|---------|
